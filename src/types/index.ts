@@ -24,10 +24,22 @@ export interface AxiosRequestConfig {
   timeout?: number
   transformRequest?: AxiosTransformer | AxiosTransformer[]
   transformResponse?: AxiosTransformer | AxiosTransformer[]
-
   [propName: string]: any
 }
 export interface AxiosTransformer {
     (data: any, headers?: any): any
   }
-  
+
+export interface AxiosResponse {
+  data: any,
+  status: number,
+  statusText: string,
+  header: any,
+  config: AxiosRequestConfig,
+  request: any
+}
+
+
+export interface AxiosPromise extends Promise<AxiosResponse>{
+
+}
